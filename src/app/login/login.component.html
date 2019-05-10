@@ -1,0 +1,37 @@
+
+
+
+
+<div class="container-registro" >
+  <!-- Content here -->
+
+
+  <!-- Content here -->
+  <h1>  LogIn </h1>
+
+
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">correo</span>
+  </div>
+  <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="login.email">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">contraseña</span>
+  </div>
+  <input type="text" class="form-control" placeholder="contraseña" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="login.password">
+</div>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+  
+  <button type="button" class="btn btn-secondary" (click)="signIn()">Middle</button>
+
+
+
+</div>
+
+</div>

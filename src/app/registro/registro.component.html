@@ -1,0 +1,163 @@
+<h1> Registro </h1>
+<div class="container-registro">
+  <!-- Content here -->
+
+
+  <!-- Content here -->
+
+
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">codigo</span>
+    </div>
+    <input type="text" class="form-control" placeholder="0000" aria-label="nombre" aria-describedby="basic-addon1"
+      [(ngModel)]="usuario.codigo">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">cedula</span>
+    </div>
+    <input type="text" class="form-control" placeholder="cedula" aria-label="nombre" aria-describedby="basic-addon1"
+      [(ngModel)]="usuario.cedula">
+  </div>
+
+
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">apellidos y nombres </span>
+    </div>
+    <input type="text" class="form-control" placeholder="Username" aria-label="nombre" aria-describedby="basic-addon1"
+      [(ngModel)]="usuario.nombrecompleto">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">direccion</span>
+    </div>
+    <input type="text" class="form-control" placeholder="direccion" aria-label="Username"
+      aria-describedby="basic-addon1" [(ngModel)]="usuario.direccion">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">telefono</span>
+    </div>
+    <input type="text" class="form-control" placeholder="telefono" aria-label="Username" aria-describedby="basic-addon1"
+      [(ngModel)]="usuario.celular">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">correo</span>
+    </div>
+    <input type="text" class="form-control" placeholder="correo" aria-label="Username" aria-describedby="basic-addon1"
+      [(ngModel)]="usuario.correo">
+  </div>
+
+
+
+
+
+
+  <div>
+    <label> clase</label>
+    <select id="s1" [(ngModel)]="usuario.clase">
+
+      <ng-container *ngFor="let ruta of rutas | async">
+        <option>{{ruta.codigo}}</option>
+      </ng-container>
+
+    </select>
+  </div>
+
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">ciclo</span>
+    </div>
+    <input type="text" class="form-control" placeholder="ciclo" aria-label="Username" aria-describedby="basic-addon1"
+      [(ngModel)]="usuario.ciclo">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">matricula</span>
+    </div>
+    <input type="text" class="form-control" placeholder="matricula" aria-label="Username"
+      aria-describedby="basic-addon1" [(ngModel)]="usuario.matricula">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">numpredial</span>
+    </div>
+    <input type="text" class="form-control" placeholder="numpredial" aria-label="Username"
+      aria-describedby="basic-addon1" [(ngModel)]="usuario.numpredial">
+  </div>
+
+
+  <div>
+
+    <p [(ngModel)]="usuario.fecharegistro">{{curDate | date:'yyyy-MM-dd'}}</p>
+  </div>
+
+
+  <div class="btn-group" role="group" aria-label="Basic example">
+
+    <button type="button" class="btn btn-secondary" (click)="createusuario()">Registrar y estabecer pago</button>
+
+
+
+  </div>
+
+</div>
+
+
+<div>
+
+  <h1>Gestion de pago y numero de cuotas</h1>
+  
+    <div class="cuotasymatricula">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Valor de matricula: </span>
+        </div>
+        <div *ngFor="let val of valormatricula | async">
+          <p id="idval"   >{{val.valor}}</p>
+          
+        </div>
+
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">numero de cuotas </span>
+        </div>
+        <input type="number" id="numcuotas" class="form-control" placeholder="pago" aria-label="Username"
+          aria-describedby="basic-addon1" [(ngModel)]="numcuotas">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">inicial </span>
+        </div>
+        <input type="number" id="ini" class="form-control" placeholder="pago" aria-label="Username"
+          aria-describedby="basic-addon1" [(ngModel)]="ini">
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span type="number" class="input-group-text" id="basic-addon1" *ngIf="valormatricula2 != null">{{valormatricula2}} </span>
+        </div>
+
+      </div>
+
+
+      <button type="button" class="btn btn-secondary" (click)="calcularvalorcuota()">Registrar y finalizar</button>
+
+
+    </div>
+
+  
+</div>
